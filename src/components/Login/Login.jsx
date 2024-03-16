@@ -1,9 +1,23 @@
+import React, { useContext } from "react";
 import { Box, Container, Grid } from "@mui/material";
-import React from "react";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
+import { Context } from "../../index";
 import { ColorGrid, ColorButton } from "./LoginStyles";
 
 const Login = () => {
+  const { auth } = useContext(Context);
+
+  const login = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      const { user } = await signInWithPopup(auth, provider);
+      console.log(user);
+    } catch (error) {
+      console.error("Error signing in:", error);
+    }
+  };
+
   return (
     <Container>
       <Grid
@@ -20,7 +34,7 @@ const Login = () => {
           direction="column"
         >
           <Box p={5}>
-            <ColorButton size="small" variant="contained">
+            <ColorButton onClick={login} size="small" variant="contained">
               Sign in with Google
             </ColorButton>
           </Box>

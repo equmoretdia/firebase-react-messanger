@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import NavBar from "./components/NavBar/NavBar";
+import NavBar1 from "./components/NavBar1/NavBar1";
 import AppRouter from "./components/AppRouter/AppRouter";
 
 import "./App.css";
@@ -7,7 +7,7 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar1 />
       <AppRouter />
     </BrowserRouter>
   );
