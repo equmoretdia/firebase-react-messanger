@@ -1,6 +1,5 @@
+import { AppBar, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Button from "@mui/material/Button";
 import { teal } from "@mui/material/colors";
 
 export const ColorAppBar = styled(AppBar)(({ theme }) => ({

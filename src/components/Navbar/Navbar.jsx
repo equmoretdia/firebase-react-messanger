@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Toolbar from "@mui/material/Toolbar";
-import Grid from "@mui/material/Grid";
+import { Toolbar, Grid } from "@mui/material";
 
 import { CHAT_ROUTE, LOGIN_ROUTE } from "../../utils/consts";
 import { ColorAppBar, ColorButton } from "./NavBarStyles";
