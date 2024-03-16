@@ -1,5 +1,7 @@
-import { Button, Box, Container, Grid } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import React from "react";
+
+import { ColorGrid, ColorButton } from "./LoginStyles";
 
 const Login = () => {
   return (
@@ -10,17 +12,19 @@ const Login = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid
+        <ColorGrid
           container
-          style={{ width: 500 }}
+          style={{ width: 500, borderRadius: 4 }}
           justifyContent="center"
           alignItems="center"
           direction="column"
         >
           <Box p={5}>
-            <Button var>Sign in with Google</Button>
+            <ColorButton size="small" variant="contained">
+              Sign in with Google
+            </ColorButton>
           </Box>
-        </Grid>
+        </ColorGrid>
       </Grid>
     </Container>
   );
