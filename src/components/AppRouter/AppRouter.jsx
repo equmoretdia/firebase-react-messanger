@@ -8,9 +8,7 @@ import { Context } from "../../index";
 
 const AppRouter = () => {
   const { auth } = useContext(Context);
-  const { user } = useAuthState(auth);
-  console.log(auth);
-  console.log(user);
+  const [user] = useAuthState(auth);
 
   return (
     <Routes>

@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Toolbar, Grid } from "@mui/material";
 
+import { Context } from "../../index";
 import { LOGIN_ROUTE } from "../../utils/consts";
 import { ColorAppBar, ColorButton } from "./NavBarStyles";
 
 const NavBar = () => {
-  const user = false;
+  const { auth } = useContext(Context);
+  const [user] = useAuthState(auth);
+
   return (
     <ColorAppBar color="primary" position="static">
       <Toolbar variant="dense">
@@ -18,7 +23,11 @@ const NavBar = () => {
         >
           {user ? (
             <NavLink>
-              <ColorButton size="small" variant="contained">
+              <ColorButton
+                onClick={() => auth.signOut()}
+                size="small"
+                variant="contained"
+              >
                 Logout
               </ColorButton>{" "}
             </NavLink>
