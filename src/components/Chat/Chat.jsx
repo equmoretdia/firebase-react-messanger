@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { FieldValue } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
-import { Container, Grid } from "@mui/material";
+import { Avatar, Container, Grid } from "@mui/material";
 
 import Loader from "../Loader/Loader";
 import { Context } from "../../index";
@@ -46,7 +46,28 @@ const Chat = () => {
             borderRadius: "4px",
             overflowY: "auto",
           }}
-        ></div>
+        >
+          {messages.map((message) => (
+            <div
+              style={{
+                margin: 10,
+                pading: 5,
+                border:
+                  user.uid === message.uid
+                    ? "2px solid green"
+                    : "2px solid yellow",
+                marginLeft: user.uid === message.uid ? "auto" : "10px",
+                width: "fit-content",
+              }}
+            >
+              <Grid container>
+                <Avatar src={message.photoURL} />
+                <div>{message.displayName}</div>
+              </Grid>
+              <div>{message.text}</div>
+            </div>
+          ))}
+        </div>
         <Grid
           container
           direction="column"
