@@ -24,7 +24,7 @@ const NavBar = () => {
           {user ? (
             <NavLink>
               <ColorButton
-                onClick={() => auth.signOut()}
+                onClick={() => signOut(auth)}
                 size="small"
                 variant="contained"
               >
